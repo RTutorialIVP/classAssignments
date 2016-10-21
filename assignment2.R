@@ -34,13 +34,98 @@ summarise(group_by(ff), mean_FFMC=mean(FFMC),mean_DMC=mean(DMC),mean_DC=mean(DC)
 #Find the number of records for each month-day combo
 var<-summarise(group_by(ff, month,day),count=n())
 
+#Create another column called “Month”, which has full values of month, i.e “aug” becomes “August”, “sep” becomes “September” and so on
+ff$Month_Full <-
+    sapply(ff$month,function(x){
+    if(x=="jan"){
+      x <- as.factor("January")
+      
+    }
+      else if(x=="feb"){
+        x <- as.factor("february")
+        
+      }
+      
+      else if(x=="mar"){
+        x <- as.factor("March")
+        
+      }
+      else if(x=="apr"){
+        x <- as.factor("April")
+        
+      }
+      else if(x=="may"){
+        x <- as.factor("May")
+        
+      }
+      else if(x=="jun"){
+        x <- as.factor("June")
+        
+      }
+      else if(x=="jul"){
+        x <- as.factor("July")
+        
+      }
+      else if(x=="aug"){
+        x <- as.factor("August")
+        
+      }
+      else if(x=="sep"){
+        x <- as.factor("September")
+        
+      }
+      else if(x=="oct"){
+        x <- as.factor("October")
+        
+      }
+      else if(x=="Nov"){
+        x <- as.factor("November")
+        
+      }
+      else if(x=="Dec"){
+        x <- as.factor("December")
+        
+      }
+       return( x )
+   })
+
+#Create another Column Day_Num where day will be from 1 to 7 - 1 being Sunday, 2 being Monday, 3 being Tuesday and so on
 
 
-
-
-
-
-
+ff$Day_num <-
+  sapply(ff$day,function(x){
+    if(x=="sun"){
+      x <- as.factor(1)
+      
+    }
+    else if(x=="mon"){
+      x <- as.factor(2)
+      
+    }
+    
+    else if(x=="tue"){
+      x <- as.factor(3)
+      
+    }
+    else if(x=="wed"){
+      x <- as.factor(4)
+      
+    }
+    else if(x=="thu"){
+      x <- as.factor(5)
+      
+    }
+    else if(x=="fri"){
+      x <- as.factor(6)
+      
+    }
+    else if(x=="sat"){
+      x <- as.factor(7)
+      
+    }
+    
+    return( x )
+  })
 
 
 
