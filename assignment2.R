@@ -128,6 +128,14 @@ ff$Day_num <-
   })
 
 
+#Graph plots
+
+
+pdf("C:/Users/Administrator/barPlot1.pdf")
+barplot(counts, main="Distribution by X and Y",
+        xlab="X", col=c("darkblue","red"),
+        legend = rownames(counts), beside=TRUE)
+dev.off()
 
 
 
