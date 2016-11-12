@@ -8,7 +8,7 @@ train$pclass <-factor(train$Pclass,levels = c(3, 2, 1), ordered = TRUE)
 S = train$Survived == 1
 
 #read the test data into a dataframe named test
-test<- read.table("C:/Users/vk046010/Desktop/Titanic/test.csv",
+test<- read.table("C:/Users/Administrator/Desktop/R Course/Titanic/test.csv",
                    header = TRUE, sep = ",")
 
 #pclass is categorical for test data also
